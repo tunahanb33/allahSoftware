@@ -3,9 +3,9 @@
     <div v-if="!isLoading">
       <TheHeader @showNav="showNavBar = !showNavBar" />
       <router-view v-slot="{ Component }">
-        <AppNavbar :showNav="showNavBar" class="absolute" />
+        <AppNavbar v-if="isLogged" :showNav="showNavBar" class="absolute" />
       <transition>
-        <component class="lg:ml-60" :is="Component" />
+        <component :class="isLogged ? 'lg:ml-60' :''" :is="Component" />
       </transition>
     </router-view>
     </div>
@@ -20,7 +20,7 @@ import { computed, ref } from "vue";
 import { useStore } from "vuex";
 const store = useStore();
 const showNavBar = ref(false);
-
+const isLogged = localStorage.getItem('token');
 let isLoading = computed(() => {
   if (store.getters._getCurrentUser) return false;
   else return true;

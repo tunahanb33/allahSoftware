@@ -1,6 +1,6 @@
 <template>
     <div class="text-white">
-        <section class="w-full p-[35px] xl:mx-[190px]">
+        <section class="w-full p-[35px]">
             <!--INPUT SECTION-->
             <div>
                 <h2 class="text-[24px] lg:text-[30px] font-bold text-[#e4e6e7]">Gsm TC Sorgu</h2>

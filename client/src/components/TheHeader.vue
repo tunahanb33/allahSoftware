@@ -1,6 +1,8 @@
 <template>
     <div class="h-16 bg-[#2a3241] relative flex justify-between items-center px-5">
-        <img src="../assets/brandLogo.png" class="h-full py-2 hidden lg:flex" alt="">
+        <router-link class="h-full py-2 hidden lg:flex" to="/">
+            <img src="../assets/brandLogo.png">
+        </router-link>
         <button @click="$emit('showNav')" class="lg:bg-green-400 flex lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" class="fill-current text-white" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg>
         </button>
