@@ -1,0 +1,13 @@
+import { createApp } from 'vue';
+import './style.css';
+import App from './App.vue';
+import router from './router';
+import { customAxios } from './utils/customAxios';
+import store from './store';
+const app = createApp(App);
+import Loading from './components/shared/Loading.vue';
+app.config.globalProperties.$axios = customAxios;
+app.component('Loading', Loading);
+app.use(router);
+app.use(store);
+app.mount('#app');
