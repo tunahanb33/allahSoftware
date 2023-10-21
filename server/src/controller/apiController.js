@@ -56,6 +56,14 @@ const aile = async (req, res) => {
     mother.Yakinlik = 'Annesi';
     father.Yakinlik = 'Babası';
     const query = `SELECT * FROM \`101m\` WHERE \`ANNETC\` = "${mother.TC}" AND \`BABATC\` = "${father.TC}"`;
+    const childQuery = `SELECT * FROM \`101m\` WHERE \`ANNETC\` = "${user.TC}" OR \`BABATC\` = "${user.TC}"`;
+    tcQuery(childQuery, res, (err, response) => {
+        response.forEach(m => {
+            if (m.TC == user.TC) return;
+            m.Yakinlik = 'Çocuğu'
+            results.push(m)
+        });
+    })
     results.push(user, mother, father);
     tcQuery(query, res, (err, response) => {
         response.forEach(m => {
